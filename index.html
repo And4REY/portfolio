@@ -2,346 +2,206 @@
 <html lang="ru">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Сайты, Telegram-боты и парсеры под ключ</title>
-<meta name="description" content="Делаю сайты, Telegram-ботов и парсеры. Три рабочих демо-проекта и бесплатный прототип перед оплатой.">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>rlqwerty: сайты, интернет-магазины, Telegram-боты и парсеры</title>
+<meta name="description" content="Шесть рабочих демо-проектов: магазины, лендинги, сайты на английском, Telegram-бот с ИИ и парсер. Бесплатный прототип до оплаты.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;800&display=swap" rel="stylesheet">
-<style>
-:root{
-  --bg:#e9edf2; --paper:#f8fafc; --ink:#14213d; --soft:#56627a; --line:#cfd6e0;
-  --blue:#2b50e8; --blue-ink:#fff; --yellow:#ffd23f; --chat:#d9eefc; --me:#2b50e8;
-}
-@media (prefers-color-scheme:dark){
-  :root:not([data-theme="light"]){
-    --bg:#10172a; --paper:#18213a; --ink:#e8ecf5; --soft:#9aa6bf; --line:#2b3654;
-    --blue:#5b7cff; --chat:#23304f; --me:#5b7cff;
-  }
-  :root:not([data-theme="light"]) .hero h1 mark{background:none;color:var(--yellow)}
-}
-:root[data-theme="dark"]{
-  --bg:#10172a; --paper:#18213a; --ink:#e8ecf5; --soft:#9aa6bf; --line:#2b3654;
-  --blue:#5b7cff; --chat:#23304f; --me:#5b7cff;
-}
-:root[data-theme="dark"] .hero h1 mark{background:none;color:var(--yellow)}
-*{box-sizing:border-box;margin:0;padding:0}
-html,body{overflow-x:hidden}
-body{font-family:Onest,system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.55;font-size:17px;-webkit-font-smoothing:antialiased}
-a{color:inherit}
-.wrap{max-width:1160px;margin:0 auto;padding:0 20px}
-:focus-visible{outline:3px solid var(--blue);outline-offset:3px;border-radius:6px}
-
-.btn{display:inline-flex;align-items:center;gap:10px;padding:15px 24px;border-radius:14px;font-weight:600;text-decoration:none;font-size:16px;transition:transform .15s}
-.btn:hover{transform:translateY(-2px)}
-.btn-main{background:var(--blue);color:var(--blue-ink)}
-.btn-line{border:2px solid var(--ink)}
-.btn svg{width:20px;height:20px}
-
-/* шапка */
-.top{display:flex;justify-content:space-between;align-items:center;padding:22px 0}
-.me{font-weight:800;font-size:18px;text-decoration:none}
-.top a.tg{font-weight:600;text-decoration:none;border-bottom:2px solid var(--yellow)}
-
-/* первый экран */
-.hero{padding:56px 0 72px}
-.hero h1{font-size:clamp(40px,7vw,92px);line-height:.98;letter-spacing:-.045em;font-weight:800;max-width:11.5em}
-.hero h1 mark{background:linear-gradient(transparent 58%,var(--yellow) 58%,var(--yellow) 92%,transparent 92%);color:inherit;padding:0 .04em}
-.hero p{font-size:clamp(18px,2vw,21px);color:var(--soft);max-width:34em;margin:28px 0 34px}
-.hero .actions{display:flex;flex-wrap:wrap;gap:12px}
-
-/* работы */
-.work{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:56px;align-items:center;padding:72px 0;border-top:2px solid var(--line)}
-.work:nth-of-type(even) .demo{order:-1}
-.work h2{font-size:clamp(28px,3.4vw,40px);line-height:1.08;letter-spacing:-.03em;font-weight:800;margin-bottom:16px}
-.work .kind{display:inline-block;font-weight:600;color:var(--blue);margin-bottom:12px}
-.work p{color:var(--soft);margin-bottom:18px;max-width:30em}
-.work ul{list-style:none;margin:0 0 26px;display:grid;gap:8px}
-.work li{padding-left:22px;position:relative}
-.work li::before{content:"";position:absolute;left:0;top:.6em;width:10px;height:10px;background:var(--yellow);border-radius:3px}
-.links{display:flex;flex-wrap:wrap;gap:10px}
-.stack{margin-top:18px;font-size:14px;color:var(--soft)}
-
-/* демо: браузер */
-.browser{background:var(--paper);border:2px solid var(--ink);border-radius:16px;overflow:hidden;box-shadow:10px 10px 0 var(--ink)}
-.bar{display:flex;align-items:center;gap:7px;padding:10px 14px;border-bottom:2px solid var(--ink)}
-.bar i{width:11px;height:11px;border-radius:50%;border:2px solid var(--ink)}
-.bar span{margin-left:10px;font-size:13px;color:var(--soft);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.viewport{position:relative;height:440px;overflow:hidden;background:#fff}
-.viewport iframe{position:absolute;top:0;left:0;width:200%;height:200%;border:0;transform:scale(.5);transform-origin:0 0}
-
-/* демо: чат */
-.phone{max-width:390px;margin:0 auto;background:var(--paper);border:2px solid var(--ink);border-radius:28px;box-shadow:10px 10px 0 var(--ink);overflow:hidden}
-.phone-head{display:flex;gap:12px;align-items:center;padding:14px 18px;border-bottom:2px solid var(--ink)}
-.ava{width:38px;height:38px;border-radius:50%;background:var(--blue);color:#fff;display:grid;place-items:center;font-weight:800}
-.phone-head b{display:block;font-size:15px}
-.phone-head small{color:var(--soft);font-size:13px}
-.chat{height:420px;padding:16px;display:flex;flex-direction:column;gap:8px;overflow:hidden;justify-content:flex-end}
-.msg{max-width:84%;padding:9px 13px;border-radius:16px;font-size:14.5px;line-height:1.4;white-space:pre-line}
-.msg.bot{background:var(--chat);border-bottom-left-radius:4px;align-self:flex-start}
-.msg.user{background:var(--me);color:#fff;border-bottom-right-radius:4px;align-self:flex-end}
-.msg .kb{display:flex;flex-wrap:wrap;gap:5px;margin-top:8px}
-.msg .kb span{background:var(--paper);border:1.5px solid var(--line);border-radius:8px;padding:4px 8px;font-size:12.5px}
-.chat.play .msg{opacity:0;transform:translateY(8px);transition:opacity .35s,transform .35s}
-.chat.play .msg.on{opacity:1;transform:none}
-
-/* демо: таблица */
-.sheet{background:var(--paper);border:2px solid var(--ink);border-radius:16px;box-shadow:10px 10px 0 var(--ink);overflow:hidden}
-.sheet .bar span{color:var(--ink);font-weight:600}
-.scroll{overflow-x:auto}
-table{border-collapse:collapse;width:100%;font-size:14px;min-width:560px}
-th,td{padding:9px 12px;border-bottom:1px solid var(--line);text-align:left;white-space:nowrap}
-th{font-weight:600;background:var(--bg)}
-td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
-td.t{max-width:220px;overflow:hidden;text-overflow:ellipsis}
-.lo{background:rgba(64,180,110,.18)}.hi{background:rgba(232,110,80,.2)}
-.sheet-foot{display:flex;gap:28px;flex-wrap:wrap;padding:16px 14px;border-top:2px solid var(--ink)}
-.sheet-foot b{font-size:26px;letter-spacing:-.02em;display:block;line-height:1.1}
-.sheet-foot small{color:var(--soft)}
-
-/* как работаю */
-.how{padding:80px 0;border-top:2px solid var(--line)}
-.how h2{font-size:clamp(28px,3.4vw,40px);letter-spacing:-.03em;font-weight:800;margin-bottom:36px}
-.steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:28px;list-style:none;counter-reset:s}
-.steps li{counter-increment:s}
-.steps li::before{content:counter(s);display:grid;place-items:center;width:42px;height:42px;border-radius:50%;background:var(--ink);color:var(--bg);font-weight:800;margin-bottom:16px}
-.steps b{display:block;font-size:19px;margin-bottom:6px}
-.steps span{color:var(--soft);font-size:16px}
-
-/* контакт */
-.contact{background:var(--ink);color:var(--bg);border-radius:28px;padding:64px 56px;margin:0 0 40px;display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:40px;align-items:center}
-.contact h2{font-size:clamp(30px,4vw,48px);line-height:1.05;letter-spacing:-.035em;font-weight:800}
-.contact p{opacity:.75;margin-top:16px;max-width:30em}
-.contact .btn-main{background:var(--yellow);color:#14213d;font-size:18px;padding:18px 28px}
-.contact .side{display:grid;gap:14px;justify-items:start}
-.contact .side small{opacity:.7}
-footer{padding:0 0 40px;color:var(--soft);font-size:14px}
-
-@media (max-width:900px){
-  .work{grid-template-columns:minmax(0,1fr);gap:36px;padding:56px 0}
-  .work:nth-of-type(even) .demo{order:0}
-  .steps{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .contact{grid-template-columns:minmax(0,1fr);padding:40px 24px}
-  .viewport{height:360px}
-}
-@media (max-width:520px){
-  .steps{grid-template-columns:minmax(0,1fr)}
-  .viewport iframe{width:400%;height:400%;transform:scale(.25)}
-  .browser,.phone,.sheet{box-shadow:6px 6px 0 var(--ink)}
-}
-@media (prefers-reduced-motion:reduce){*{transition:none!important}.chat.play .msg{opacity:1;transform:none}}
-</style>
+<link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="site.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%2306525c'/%3E%3Crect x='6' y='6' width='5' height='20' fill='%23f7f9f8'/%3E%3Crect x='14' y='6' width='5' height='20' fill='%23f7f9f8'/%3E%3Crect x='22' y='6' width='5' height='20' fill='%23f7f9f8'/%3E%3C/svg%3E">
 </head>
 <body>
-<div class="wrap">
+<a class="skip" href="#main">К содержанию</a>
 
-<header class="top">
-  <a class="me" href="#">rlqwerty</a>
-  <a class="tg" href="https://t.me/rlqwerty">Telegram: @rlqwerty</a>
-</header>
+<div class="split">
+  <!-- Неподвижная половина: скриншот проекта, о котором сейчас читают -->
+  <figure class="stage" id="stage" aria-label="Скриншот проекта">
+    <img class="is-on" data-shot="pasparty" src="img/shot-pasparty.jpg" alt="Интернет-магазин «Паспарту», первый экран" width="1440" height="1800" fetchpriority="high">
+    <img data-shot="remont" src="img/shot-remont.jpg" alt="Лендинг «Квадрат», первый экран" width="1440" height="1800" loading="lazy">
+    <img data-shot="tallyhour" src="img/shot-tallyhour.jpg" alt="Сайт Tallyhour, первый экран с живым таймером" width="1440" height="1800" loading="lazy">
+    <img data-shot="overprint" src="img/shot-overprint.jpg" alt="Магазин Overprint Supply, каталог" width="1440" height="1800" loading="lazy">
+    <img data-shot="bot" data-fit="contain" src="img/shot-bot.jpg" alt="Диалог с Telegram-ботом «Квадрата»: расчёт ремонта" width="1440" height="1800" loading="lazy">
+    <img data-shot="parser" data-fit="contain" src="img/shot-parser.jpg" alt="Таблица Excel, которую собрал парсер" width="1440" height="1800" loading="lazy">
+    <figcaption class="stage__cap" id="stageCap">Паспарту · интернет-магазин</figcaption>
+  </figure>
 
-<section class="hero">
-  <h1>Сайты, Telegram-боты и&nbsp;парсеры, <mark>которые работают</mark></h1>
-  <p>Ниже пять проектов: их можно открыть и попробовать, а не только посмотреть на скриншоты. Перед оплатой делаю бесплатный прототип вашей задачи, чтобы вы сразу видели результат.</p>
-  <div class="actions">
-    <a class="btn btn-main" href="https://t.me/rlqwerty">
-      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.9 4.3 18.7 19.4c-.2 1-.9 1.3-1.7.8l-4.8-3.5-2.3 2.2c-.3.3-.5.5-1 .5l.3-4.9 8.9-8c.4-.3-.1-.5-.6-.2L6.5 13.3l-4.7-1.5c-1-.3-1-1 .2-1.5L20.6 3c.9-.3 1.6.2 1.3 1.3z"/></svg>
-      Написать в Telegram</a>
-    <a class="btn btn-line" href="#works">Посмотреть работы</a>
-  </div>
-</section>
-
-<main id="works">
-
-<section class="work">
-  <div>
-    <span class="kind">Лендинг</span>
-    <h2>Сайт студии ремонта с калькулятором стоимости</h2>
-    <p>Посетитель сам считает цену ремонта, видит срок и оставляет заявку. Калькулятор живой: попробуйте подвигать площадь прямо в окне с сайтом.</p>
-    <ul>
-      <li>Расчёт цены и срока на лету</li>
-      <li>Форма заявки с проверкой телефона</li>
-      <li>Аккуратно выглядит на телефоне</li>
-    </ul>
-    <div class="links">
-      <a class="btn btn-main" href="remont/index.html">Открыть сайт</a>
-      <a class="btn btn-line" href="https://github.com/And4REY/portfolio/tree/main/remont">Код</a>
-    </div>
-    <p class="stack">HTML, CSS, JavaScript. Без конструкторов, грузится мгновенно.</p>
-  </div>
-  <div class="demo">
-    <div class="browser">
-      <div class="bar"><i></i><i></i><i></i><span>Демо-сайт «Квадрат»</span></div>
-      <div class="viewport"><iframe src="remont/index.html" title="Демо: сайт студии ремонта" loading="lazy"></iframe></div>
-    </div>
-  </div>
-</section>
-
-<section class="work">
-  <div>
-    <span class="kind">Сайт на английском · SaaS</span>
-    <h2>Сайт программы для фрилансеров с живым демо</h2>
-    <p>Лендинг сервиса учёта времени и счетов для зарубежной аудитории. Прямо на странице работает кусок продукта: запустите таймер, остановите его и откройте счёт, собранный из записанного времени.</p>
-    <ul>
-      <li>Рабочий таймер и счёт внутри страницы</li>
-      <li>Тарифы с переключателем «месяц / год»</li>
-      <li>Форма регистрации с проверкой почты</li>
-    </ul>
-    <div class="links">
-      <a class="btn btn-main" href="tallyhour/index.html">Открыть сайт</a>
-      <a class="btn btn-line" href="https://github.com/And4REY/portfolio/tree/main/tallyhour">Код</a>
-    </div>
-    <p class="stack">HTML, CSS, JavaScript, без фреймворков. Концепт: продукт и компания вымышлены.</p>
-  </div>
-  <div class="demo">
-    <div class="browser">
-      <div class="bar"><i></i><i></i><i></i><span>Демо-сайт Tallyhour</span></div>
-      <div class="viewport"><iframe src="tallyhour/index.html" title="Демо: сайт программы Tallyhour" loading="lazy"></iframe></div>
-    </div>
-  </div>
-</section>
-
-<section class="work">
-  <div>
-    <span class="kind">Интернет-магазин на английском</span>
-    <h2>Магазин цифровых товаров с корзиной и оформлением заказа</h2>
-    <p>Магазин текстур, шаблонов и кистей для дизайнеров. Каталог с фильтрами и сортировкой, страница товара с выбором лицензии, корзина, которая сохраняется между страницами, и оформление заказа.</p>
-    <ul>
-      <li>Фильтры, сортировка, карточки товаров</li>
-      <li>Цена зависит от выбранной лицензии</li>
-      <li>Корзина с отменой удаления и оформлением</li>
-    </ul>
-    <div class="links">
-      <a class="btn btn-main" href="overprint/index.html">Открыть магазин</a>
-      <a class="btn btn-line" href="https://github.com/And4REY/portfolio/tree/main/overprint">Код</a>
-    </div>
-    <p class="stack">HTML, CSS, JavaScript. Обложки товаров нарисованы кодом (SVG). Концепт: оплаты нет.</p>
-  </div>
-  <div class="demo">
-    <div class="browser">
-      <div class="bar"><i></i><i></i><i></i><span>Демо-магазин Overprint Supply</span></div>
-      <div class="viewport"><iframe src="overprint/index.html" title="Демо: магазин Overprint Supply" loading="lazy"></iframe></div>
-    </div>
-  </div>
-</section>
-
-<section class="work">
-  <div>
-    <span class="kind">Telegram-бот с ИИ</span>
-    <h2>Бот, который считает ремонт и записывает на замер</h2>
-    <p>Клиент выбирает параметры кнопками и получает цену. Заявка с расчётом сразу приходит менеджеру. На вопросы своими словами отвечает ИИ по базе знаний компании.</p>
-    <ul>
-      <li>Калькулятор на кнопках</li>
-      <li>Заявки менеджеру в Telegram и в базу</li>
-      <li>ИИ-консультант, который не выдумывает цены</li>
-    </ul>
-    <div class="links">
-      <a class="btn btn-main" href="https://t.me/remontremont777_bot">Открыть бота</a>
-      <a class="btn btn-line" href="https://github.com/And4REY/portfolio/tree/main/kvadrat-bot">Код</a>
-    </div>
-    <p class="stack">Python, aiogram 3, LLM API (YandexGPT, DeepSeek, GPT), SQLite. Есть автотесты всего диалога.</p>
-  </div>
-  <div class="demo">
-    <div class="phone">
-      <div class="phone-head"><div class="ava">К</div><div><b>Квадрат · помощник</b><small>бот</small></div></div>
-      <div class="chat" id="chat">
-        <div class="msg user">Сколько будет стоить ремонт?</div>
-        <div class="msg bot">Какая площадь квартиры?<div class="kb"><span>30 м²</span><span>45 м²</span><span>60 м²</span><span>80 м²</span></div></div>
-        <div class="msg user">54</div>
-        <div class="msg bot">Площадь: 54 м². Какой ремонт нужен?<div class="kb"><span>Косметический</span><span>Капитальный</span><span>Дизайнерский</span></div></div>
-        <div class="msg user">Капитальный + тёплые полы</div>
-        <div class="msg bot">🧮 Предварительный расчёт
-Работы и материалы: 648 000 ₽
-Тёплые полы: 51 840 ₽
-Срок: ~46 дней
-
-💰 Итого: 699 840 ₽<div class="kb"><span>📝 Записаться на замер</span></div></div>
-        <div class="msg user">А гарантия есть?</div>
-        <div class="msg bot">Да, 3 года на все работы. Если что-то пойдёт не так, приедем и исправим бесплатно.</div>
+  <main class="read" id="main">
+    <header class="sheet card">
+      <div class="stripe" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      <div class="card__body">
+        <p class="wordmark">rlqwerty</p>
+        <h1>Сайты и боты, которые работают</h1>
+        <p class="card__lead">Делаю сайты, интернет-магазины, Telegram-ботов и парсеры. Ниже шесть рабочих демо: их можно открыть и потрогать. Перед оплатой показываю бесплатный прототип вашей задачи.</p>
+        <a class="btn" href="https://t.me/rlqwerty"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21.9 4.3 18.7 19.4c-.2 1-.9 1.3-1.7.8l-4.8-3.5-2.3 2.2c-.3.3-.5.5-1 .5l.3-4.9 8.9-8c.4-.3-.1-.5-.6-.2L6.5 13.3l-4.7-1.5c-1-.3-1-1 .2-1.5L20.6 3c.9-.3 1.6.2 1.3 1.3z"/></svg>Написать в Telegram</a>
       </div>
-    </div>
-  </div>
-</section>
+      <nav class="card__links" aria-label="Разделы">
+        <a href="#work">Работы</a>
+        <a href="#how">Как я работаю</a>
+        <a href="#contact">Связаться</a>
+      </nav>
+    </header>
 
-<section class="work">
-  <div>
-    <span class="kind">Парсер</span>
-    <h2>Весь каталог магазина в Excel за 40 секунд</h2>
-    <p>Парсер проходит по всем страницам каталога и каждой карточке товара. Цены пересчитывает в рубли по курсу ЦБ на сегодня, а по категориям строит сводку с диаграммой.</p>
-    <ul>
-      <li>1000 товаров с ценами, остатками и фото</li>
-      <li>Выгрузка в Excel или Google Таблицу</li>
-      <li>Можно запускать по расписанию для мониторинга цен</li>
-    </ul>
-    <div class="links">
-      <a class="btn btn-main" href="catalog-parser/books.xlsx" download>Скачать пример Excel</a>
-      <a class="btn btn-line" href="https://github.com/And4REY/portfolio/tree/main/catalog-parser">Код</a>
-    </div>
-    <p class="stack">Python, aiohttp, BeautifulSoup, openpyxl. Демо на сайте для тренировки парсеров.</p>
-  </div>
-  <div class="demo">
-    <div class="sheet">
-      <div class="bar"><i></i><i></i><i></i><span>books.xlsx — лист «Товары»</span></div>
-      <div class="scroll">
-        <table>
-          <thead><tr><th>Название</th><th>Категория</th><th class="num">Цена, ₽</th><th class="num">Остаток</th><th class="num">Рейтинг</th></tr></thead>
-          <tbody>
-            <tr><td class="t">A Light in the Attic</td><td>Poetry</td><td class="num hi">5 716,16</td><td class="num">22</td><td class="num">★★★</td></tr>
-            <tr><td class="t">The Dirty Little Secrets of Getting Your Dream Job</td><td>Business</td><td class="num">3 681,22</td><td class="num">19</td><td class="num">★★★★</td></tr>
-            <tr><td class="t">Set Me Free</td><td>Young Adult</td><td class="num lo">1 927,84</td><td class="num">19</td><td class="num">★★★★★</td></tr>
-            <tr><td class="t">Libertarianism for Beginners</td><td>Politics</td><td class="num hi">5 667,58</td><td class="num">19</td><td class="num">★★</td></tr>
-            <tr><td class="t">Black Dust</td><td>Romance</td><td class="num">3 812,62</td><td class="num">19</td><td class="num">★★★★★</td></tr>
-            <tr><td class="t">The Four Agreements</td><td>Spirituality</td><td class="num lo">1 949,92</td><td class="num">18</td><td class="num">★★★★★</td></tr>
-          </tbody>
-        </table>
-      </div>
-      <div class="sheet-foot">
-        <div><b>1000</b><small>товаров</small></div>
-        <div><b>37 с</b><small>на весь каталог</small></div>
-        <div><b>50</b><small>категорий в сводке</small></div>
-      </div>
-    </div>
-  </div>
-</section>
+    <section class="sheet ledger" id="work" aria-labelledby="work-title">
+      <h2 id="work-title" class="reveal">Работы</h2>
+      <nav class="ledger__rows" aria-label="Список проектов">
+        <a href="#p-pasparty" data-shot="pasparty"><span>Паспарту</span><span class="k">Интернет-магазин</span><span class="y">2026</span></a>
+        <a href="#p-remont" data-shot="remont"><span>Квадрат</span><span class="k">Лендинг с калькулятором</span><span class="y">2026</span></a>
+        <a href="#p-tallyhour" data-shot="tallyhour"><span>Tallyhour</span><span class="k">Сайт на английском</span><span class="y">2026</span></a>
+        <a href="#p-overprint" data-shot="overprint"><span>Overprint Supply</span><span class="k">Магазин на английском</span><span class="y">2026</span></a>
+        <a href="#p-bot" data-shot="bot"><span>Бот «Квадрата»</span><span class="k">Telegram-бот с ИИ</span><span class="y">2026</span></a>
+        <a href="#p-parser" data-shot="parser"><span>Парсер каталога</span><span class="k">Парсер в Excel</span><span class="y">2026</span></a>
+      </nav>
+    </section>
 
-</main>
+    <article class="sheet proj reveal" id="p-pasparty" data-shot="pasparty">
+      <h3>Паспарту</h3>
+      <p class="proj__kind">Интернет-магазин · русский</p>
+      <figure class="proj__pic"><img src="img/shot-pasparty.jpg" alt="" width="1440" height="1800" loading="lazy"></figure>
+      <p>Магазин репродукций музейных гравюр. Покупатель выбирает размер, паспарту и раму, видит работу на стене в настоящем масштабе и оформляет заказ.</p>
+      <ul class="proj__facts">
+        <li>Цена пересчитывается от размера и рамы</li>
+        <li>Примерка на стене в правильном масштабе</li>
+        <li>Корзина с отменой удаления и оформление</li>
+      </ul>
+      <p class="proj__stack">HTML, CSS, JavaScript. Картины из открытых коллекций The Met и Art Institute of Chicago.</p>
+      <div class="proj__links"><a class="btn" href="pasparty/">Открыть магазин</a><a class="tlink" href="https://github.com/And4REY/portfolio/tree/main/pasparty">Код</a></div>
+    </article>
 
-<section class="how">
-  <h2>Как я работаю</h2>
-  <ol class="steps">
-    <li><b>Обсуждаем задачу</b><span>Пишете в Telegram, я задаю пару уточняющих вопросов.</span></li>
-    <li><b>Бесплатный прототип</b><span>Через день показываю первый экран или рабочую часть.</span></li>
-    <li><b>Делаю проект</b><span>Цена и срок фиксированы, присылаю промежуточные результаты.</span></li>
-    <li><b>Правки и запуск</b><span>Вношу правки, помогаю выложить и передаю весь код.</span></li>
-  </ol>
-</section>
+    <article class="sheet proj reveal" id="p-remont" data-shot="remont">
+      <h3>Квадрат</h3>
+      <p class="proj__kind">Лендинг · русский</p>
+      <figure class="proj__pic"><img src="img/shot-remont.jpg" alt="" width="1440" height="1800" loading="lazy"></figure>
+      <p>Сайт студии ремонта квартир. Калькулятор собирает предварительную смету, а заявка на замер уходит вместе с расчётом. Цифры совпадают с Telegram-ботом той же студии.</p>
+      <ul class="proj__facts">
+        <li>Калькулятор в виде сметы</li>
+        <li>Лента этапов, которая листается вбок</li>
+        <li>Форма с маской телефона и проверкой</li>
+      </ul>
+      <p class="proj__stack">HTML, CSS, JavaScript. Без конструкторов, грузится мгновенно.</p>
+      <div class="proj__links"><a class="btn" href="remont/">Открыть сайт</a><a class="tlink" href="https://github.com/And4REY/portfolio/tree/main/remont">Код</a></div>
+    </article>
 
-<section class="contact">
-  <div>
-    <h2>Опишите задачу, и я предложу решение</h2>
-    <p>Сайт, бот, парсер, автоматизация таблиц или интеграция с CRM. Если задача мне не по силам, скажу об этом сразу.</p>
-  </div>
-  <div class="side">
-    <a class="btn btn-main" href="https://t.me/rlqwerty">Написать в Telegram</a>
-    <small>@rlqwerty</small>
-  </div>
-</section>
+    <article class="sheet proj proj--band reveal" id="p-tallyhour" data-shot="tallyhour">
+      <h3>Tallyhour</h3>
+      <p class="proj__kind">Сайт программы · английский</p>
+      <figure class="proj__pic"><img src="img/shot-tallyhour.jpg" alt="" width="1440" height="1800" loading="lazy"></figure>
+      <p>Лендинг сервиса учёта времени для зарубежной аудитории. Прямо на странице работает кусок продукта: запустите таймер, остановите и откройте счёт, собранный из записанного времени.</p>
+      <ul class="proj__facts">
+        <li>Живой таймер и счёт внутри страницы</li>
+        <li>Тарифы с переключателем «месяц / год»</li>
+        <li>Регистрация с проверкой почты</li>
+      </ul>
+      <p class="proj__stack">HTML, CSS, JavaScript, без фреймворков.</p>
+      <div class="proj__links"><a class="btn" href="tallyhour/">Открыть сайт</a><a class="tlink" href="https://github.com/And4REY/portfolio/tree/main/tallyhour">Код</a></div>
+    </article>
 
-<footer>Проекты на странице — демо: компании вымышлены, а код и работа настоящие.</footer>
+    <article class="sheet proj reveal" id="p-overprint" data-shot="overprint">
+      <h3>Overprint Supply</h3>
+      <p class="proj__kind">Интернет-магазин · английский</p>
+      <figure class="proj__pic"><img src="img/shot-overprint.jpg" alt="" width="1440" height="1800" loading="lazy"></figure>
+      <p>Магазин цифровых файлов для дизайнеров: текстуры, шаблоны, иконки и кисти. Обложки товаров нарисованы кодом в стиле ризографа.</p>
+      <ul class="proj__facts">
+        <li>Фильтры, сортировка, страница товара</li>
+        <li>Цена зависит от лицензии</li>
+        <li>Корзина-шторка и оформление заказа</li>
+      </ul>
+      <p class="proj__stack">HTML, CSS, JavaScript, SVG.</p>
+      <div class="proj__links"><a class="btn" href="overprint/">Открыть магазин</a><a class="tlink" href="https://github.com/And4REY/portfolio/tree/main/overprint">Код</a></div>
+    </article>
+
+    <article class="sheet proj reveal" id="p-bot" data-shot="bot">
+      <h3>Бот «Квадрата»</h3>
+      <p class="proj__kind">Telegram-бот с ИИ</p>
+      <figure class="proj__pic"><img src="img/shot-bot.jpg" data-fit="contain" alt="" width="1440" height="1800" loading="lazy"></figure>
+      <p>Клиент выбирает параметры кнопками и получает цену ремонта. Заявка с расчётом сразу приходит менеджеру, а на вопросы своими словами отвечает ИИ по базе знаний компании.</p>
+      <ul class="proj__facts">
+        <li>Калькулятор на кнопках</li>
+        <li>Заявки менеджеру в Telegram и в базу</li>
+        <li>ИИ-консультант, который не выдумывает цены</li>
+      </ul>
+      <p class="proj__stack">Python, aiogram 3, LLM API (YandexGPT, DeepSeek, GPT), SQLite. Автотесты всего диалога.</p>
+      <div class="proj__links"><a class="btn" href="https://t.me/remontremont777_bot">Открыть бота</a><a class="tlink" href="https://github.com/And4REY/portfolio/tree/main/kvadrat-bot">Код</a></div>
+    </article>
+
+    <article class="sheet proj reveal" id="p-parser" data-shot="parser">
+      <h3>Каталог в Excel за 40 секунд</h3>
+      <p class="proj__kind">Парсер и автоматизация</p>
+      <figure class="proj__pic"><img src="img/shot-parser.jpg" data-fit="contain" alt="" width="1440" height="1800" loading="lazy"></figure>
+      <p>Парсер проходит по всем страницам каталога и каждой карточке товара, пересчитывает цены в рубли по курсу ЦБ и строит сводку по категориям с диаграммой.</p>
+      <ul class="proj__facts">
+        <li>1000 товаров с ценами, остатками и фото</li>
+        <li>Выгрузка в Excel или Google Таблицу</li>
+        <li>Можно запускать по расписанию</li>
+      </ul>
+      <p class="proj__stack">Python, aiohttp, BeautifulSoup, openpyxl. Демо на сайте для тренировки парсеров.</p>
+      <div class="proj__links"><a class="btn" href="catalog-parser/books.xlsx" download>Скачать пример Excel</a><a class="tlink" href="https://github.com/And4REY/portfolio/tree/main/catalog-parser">Код</a></div>
+    </article>
+  </main>
 </div>
 
-<script>
-// диалог в чате проигрывается один раз, когда блок появляется на экране
-const chat = document.getElementById('chat');
-if (!matchMedia('(prefers-reduced-motion: reduce)').matches && 'IntersectionObserver' in window) {
-  chat.classList.add('play');
-  const msgs = [...chat.children];
-  new IntersectionObserver((es, io) => {
-    if (!es[0].isIntersecting) return;
-    io.disconnect();
-    msgs.forEach((m, i) => setTimeout(() => m.classList.add('on'), 400 + i * 900));
-  }, {threshold: .4}).observe(chat);
-}
-</script>
+<!-- Как я работаю: переписка меняется вместе с шагом -->
+<section class="how" id="how" aria-labelledby="how-title">
+  <h2 id="how-title">Как я работаю</h2>
+  <ol class="steps">
+    <li class="step" data-state="1"><p class="step__t">Вы пишете задачу в Telegram.</p><p>Пары предложений хватит, остальное уточню сам.</p></li>
+    <li class="step" data-state="2"><p class="step__t">Через день — бесплатный прототип.</p><p>Первый экран сайта или рабочая часть бота, чтобы вы сразу видели результат.</p></li>
+    <li class="step" data-state="3"><p class="step__t">Цену и срок фиксируем до старта.</p><p>Договариваемся в переписке, присылаю промежуточные результаты.</p></li>
+    <li class="step" data-state="4"><p class="step__t">Сдаю проект и весь код.</p><p>Вношу правки, помогаю выложить и передаю всё, что сделал.</p></li>
+  </ol>
+  <figure class="chatstage" aria-label="Пример переписки">
+    <div class="chat" id="chat" data-ui>
+      <div class="chat__head"><span class="chat__ava" aria-hidden="true">R</span><div>rlqwerty<small>был недавно</small></div></div>
+      <p class="msg" data-s="1">Здравствуйте! Нужен сайт для студии маникюра с онлайн-записью.</p>
+      <p class="msg msg--me" data-s="2">Добрый день! Завтра пришлю прототип первого экрана с записью.</p>
+      <p class="msg msg--file msg--me" data-s="2"><i aria-hidden="true"></i><span>prototype.html<br><small>ссылка на демо</small></span></p>
+      <p class="msg" data-s="3">Нравится! Сколько по времени и деньгам?</p>
+      <p class="msg msg--me" data-s="3">Неделя и фиксированная цена, оплата по этапам.</p>
+      <p class="msg msg--me" data-s="4">Готово: сайт на хостинге, код в архиве, инструкция внутри.</p>
+      <p class="msg" data-s="4">Спасибо, всё работает!</p>
+    </div>
+    <figcaption>Пример переписки: так обычно идёт заказ</figcaption>
+  </figure>
+</section>
+
+<!-- Связаться: одно поле -->
+<section class="contact" id="contact" aria-labelledby="contact-title">
+  <div class="contact__inner">
+    <h2 id="contact-title"><span>Опишите задачу.</span>Отвечу в тот же день.</h2>
+    <form class="field" id="ask">
+      <label for="task" class="sr-only">Ваша задача</label>
+      <textarea id="task" name="task" rows="1" placeholder="Например: бот для записи в салон"></textarea>
+      <button type="submit" aria-label="Отправить в Telegram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></button>
+    </form>
+    <p class="contact__note" id="askNote" aria-live="polite">Текст скопируется, откроется Telegram, останется вставить его в чат.</p>
+    <dl class="contact__rows">
+      <div><dt>Telegram</dt><dd><a class="tlink" href="https://t.me/rlqwerty">@rlqwerty</a></dd></div>
+      <div><dt>GitHub</dt><dd><a class="tlink" href="https://github.com/And4REY">And4REY</a></dd></div>
+      <div><dt>Работаю</dt><dd>удалённо, по России и не только</dd></div>
+    </dl>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="foot__pic"><img src="img/shot-overprint.jpg" alt="Фрагмент магазина Overprint Supply: обложки товаров в стиле ризографа" width="1440" height="1800" loading="lazy"></div>
+  <div class="foot__menu">
+    <p class="foot__word">rlqwerty</p>
+    <nav class="foot__links" aria-label="Разделы">
+      <a href="#work">Работы</a>
+      <a href="pasparty/">Паспарту</a>
+      <a href="remont/">Квадрат</a>
+      <a href="tallyhour/">Tallyhour</a>
+      <a href="#how">Как работаю</a>
+      <a href="#contact">Связаться</a>
+    </nav>
+    <div class="foot__blocks">
+      <p>Telegram <a class="tlink" href="https://t.me/rlqwerty">@rlqwerty</a></p>
+      <p>Код всех работ на <a class="tlink" href="https://github.com/And4REY/portfolio">GitHub</a></p>
+    </div>
+    <p class="foot__legal">Все проекты на странице — демо: компании вымышлены, а код и работа настоящие. © 2026</p>
+  </div>
+</footer>
+
+<script src="site.js"></script>
 </body>
 </html>

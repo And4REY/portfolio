@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Паспарту</title>
+<meta name="description" content="Репродукции Хокусая, Хиросигэ и Ван Гога из открытых коллекций музеев. Печать на хлопке, паспарту и дубовая рама, доставка по России.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geologica:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23b88a58'/%3E%3Crect x='5' y='5' width='22' height='22' fill='%23f6f3ec'/%3E%3Crect x='10' y='10' width='12' height='12' fill='%231d2b3c'/%3E%3C/svg%3E">
+</head>
+<body data-page="product">
+<a class="skip" href="#main">К содержанию</a>
+
+<header class="top top--solid">
+  <a class="wordmark" href="./">Паспарту</a>
+  <div class="top__right">
+    <a href="./#catalog">Каталог</a>
+    <button class="cartbtn" type="button" data-open-cart>Корзина <b data-cart-count>0</b></button>
+  </div>
+</header>
+
+<main id="main">
+  <article class="pd" id="pd">
+    <header class="pd__head">
+      <nav class="crumbs" aria-label="Путь"><a href="./#catalog">Каталог</a> / <a id="pd-crumb" href="./#catalog"></a></nav>
+      <h1 id="pd-title">Работа</h1>
+      <p class="pd__by" id="pd-by"></p>
+    </header>
+    <div class="pd__stage" id="pd-stage">
+      <div class="pd__views" role="group" aria-label="Как показать работу">
+        <button type="button" data-view="solo" aria-pressed="true">В раме</button>
+        <button type="button" data-view="wall" aria-pressed="false">На стене</button>
+      </div>
+      <div class="pd__solo" id="pd-solo"></div>
+      <div class="fit__wall" id="pd-wall" hidden>
+        <img src="img/wall.jpg" alt="Голубая стена и деревянный стол" width="2000" height="1333">
+        <div class="fit__hang" id="pd-hang"></div>
+      </div>
+    </div>
+
+    <div class="pd__info">
+      <form class="fit__panel" id="pd-form" onsubmit="return false">
+        <fieldset style="border:0;padding:0;margin:0">
+          <legend class="fit__label">Размер по длинной стороне</legend>
+          <div class="opts">
+            <label class="opt"><input type="radio" name="size" value="s"><span>30 см</span></label>
+            <label class="opt"><input type="radio" name="size" value="m" checked><span>50 см</span></label>
+            <label class="opt"><input type="radio" name="size" value="l"><span>70 см</span></label>
+            <label class="opt"><input type="radio" name="size" value="xl"><span>100 см</span></label>
+          </div>
+        </fieldset>
+        <fieldset style="border:0;padding:0;margin:0">
+          <legend class="fit__label">Паспарту</legend>
+          <div class="opts">
+            <label class="opt"><input type="radio" name="mat" value="1" checked><span>Есть</span></label>
+            <label class="opt"><input type="radio" name="mat" value="0"><span>Без паспарту</span></label>
+          </div>
+        </fieldset>
+        <fieldset style="border:0;padding:0;margin:0">
+          <legend class="fit__label">Рама</legend>
+          <div class="opts">
+            <label class="opt"><input type="radio" name="frame" value="oak" checked><span><i class="swatch swatch--oak"></i>Дуб</span></label>
+            <label class="opt"><input type="radio" name="frame" value="black"><span><i class="swatch swatch--black"></i>Чёрная</span></label>
+            <label class="opt"><input type="radio" name="frame" value="white"><span><i class="swatch swatch--white"></i>Белая</span></label>
+            <label class="opt"><input type="radio" name="frame" value="none"><span><i class="swatch swatch--none"></i>Без рамы</span></label>
+          </div>
+        </fieldset>
+        <div class="price"><p><b id="pd-price">0 ₽</b></p><span class="price__dims" id="pd-dims"></span></div>
+        <button class="btn btn--wide" type="button" id="pd-add">В корзину</button>
+      </form>
+      <ul class="facts">
+        <li><span>Изображение</span> <b id="pd-img"></b></li>
+        <li><span>Бумага</span> хлопок 310 г/м²</li>
+        <li><span>Печать</span> пигмент, 12 цветов</li>
+        <li><span>Оригинал</span> <b id="pd-museum"></b></li>
+      </ul>
+      <p class="pd__about" id="pd-about"></p>
+    </div>
+  </article>
+
+  <section class="more" aria-labelledby="more-title">
+    <h2 id="more-title">Ещё в каталоге</h2>
+    <div class="tiles" id="more"></div>
+  </section>
+</main>
+
+<footer class="foot" style="min-height:auto">
+  <div class="foot__menu" style="grid-column:1/-1;padding-left:var(--margin)">
+    <p class="foot__word">Паспарту</p>
+    <p class="foot__legal">© 2026 Паспарту. Демо-магазин для портфолио: компания вымышлена, заказы не принимаются. Изображения: The Met, Art Institute of Chicago (CC0). Фото стены: Padurariu Alexandru, Unsplash.</p>
+  </div>
+</footer>
+
+<div class="scrim" id="scrim" hidden></div>
+<aside class="drawer" id="cart" role="dialog" aria-modal="true" aria-labelledby="cart-title" hidden>
+  <div class="drawer__head"><h2 id="cart-title">Корзина</h2><button class="drawer__x" id="cart-x" type="button" aria-label="Закрыть корзину">×</button></div>
+  <div class="drawer__step" data-step="items" style="display:flex;flex-direction:column;flex:1;min-height:0">
+    <ul class="drawer__body" id="cart-lines"></ul>
+    <div class="drawer__foot">
+      <p class="drawer__total"><span>Итого</span><b id="cart-total">0 ₽</b></p>
+      <button class="btn btn--wide" type="button" id="to-checkout">Оформить</button>
+    </div>
+  </div>
+  <div class="drawer__step drawer__body" data-step="checkout" hidden>
+    <form class="form" id="checkout" novalidate>
+      <label for="co-name">Имя</label>
+      <input id="co-name" autocomplete="name">
+      <label for="co-phone">Телефон</label>
+      <input id="co-phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 (___) ___-__-__">
+      <label for="co-city">Город</label>
+      <input id="co-city" autocomplete="address-level2">
+      <label for="co-del">Доставка</label>
+      <select id="co-del"><option>СДЭК до пункта выдачи</option><option>Почта России</option><option>Курьер по Москве</option></select>
+      <p class="form__err" id="co-err" aria-live="polite"></p>
+      <button class="btn btn--wide" type="submit">Оформить заказ</button>
+      <p class="form__fine">Оплата после звонка менеджера. Это демо-магазин: оплата не списывается.</p>
+      <button class="textlink" type="button" id="co-back" style="border:0;background:none;padding:0;justify-self:start;min-height:44px;cursor:pointer">Назад к корзине</button>
+    </form>
+  </div>
+  <div class="drawer__step drawer__body done" data-step="done" hidden>
+    <h3>Заказ оформлен</h3>
+    <p id="done-text"></p>
+    <p style="margin-top:2rem"><button class="btn" type="button" id="done-x">Вернуться в магазин</button></p>
+  </div>
+</aside>
+<div class="toast" id="toast" role="status" hidden></div>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

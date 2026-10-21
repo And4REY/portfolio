@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Паспарту — музейные гравюры и картины на хлопковой бумаге</title>
+<meta name="description" content="Репродукции Хокусая, Хиросигэ и Ван Гога из открытых коллекций музеев. Печать на хлопке, паспарту и дубовая рама, доставка по России.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geologica:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23b88a58'/%3E%3Crect x='5' y='5' width='22' height='22' fill='%23f6f3ec'/%3E%3Crect x='10' y='10' width='12' height='12' fill='%231d2b3c'/%3E%3C/svg%3E">
+</head>
+<body data-page="home">
+<a class="skip" href="#main">К содержанию</a>
+
+<header class="top">
+  <a class="wordmark" href="./">Паспарту</a>
+  <div class="top__right">
+    <a href="#catalog">Каталог</a>
+    <button class="cartbtn" type="button" data-open-cart>Корзина <b data-cart-count>0</b></button>
+  </div>
+</header>
+
+<main id="main">
+  <!-- Первый экран: одна работа в раме, как на витрине -->
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="hero__object" aria-hidden="true">
+      <img class="is-on" src="img/great-wave.jpg" alt="" width="2000" height="1344" fetchpriority="high">
+      <img src="img/red-fuji-sm.jpg" alt="" width="900" height="616">
+      <img src="img/irises-sm.jpg" alt="" width="900" height="714">
+      <img src="img/ryogoku-sm.jpg" alt="" width="900" height="576">
+    </div>
+    <h1 id="hero-title" class="hero__title"><span class="hero__mark">Паспарту</span><span class="sr-only">: репродукции музейных гравюр и картин</span></h1>
+    <p class="hero__lead">Музейные гравюры и картины на хлопковой бумаге</p>
+    <div class="hero__row">
+      <span>13 работ из The Met и Чикаго</span>
+      <a class="btn" href="#catalog">от 2 900 ₽ · выбрать работу</a>
+      <span>Рама из дуба по желанию</span>
+    </div>
+  </section>
+
+  <!-- Главы: каждая работа на своём фоне -->
+  <section class="chapter" data-work="red-fuji" aria-labelledby="ch-hokusai">
+    <div class="chapter__field"></div>
+    <div class="chapter__frame"></div>
+    <h2 id="ch-hokusai">Хокусай</h2>
+    <p class="chapter__text">Шесть гравюр из «36 видов Фудзи»: волна, красная гора, гроза под вершиной. Печатались около 1830 года тиражами в тысячи оттисков.</p>
+    <a class="chapter__link textlink" href="?g=hokusai#catalog">Шесть работ</a>
+  </section>
+  <section class="chapter" data-work="ryogoku" aria-labelledby="ch-hiroshige">
+    <div class="chapter__field"></div>
+    <div class="chapter__frame"></div>
+    <h2 id="ch-hiroshige">Хиросигэ</h2>
+    <p class="chapter__text">Мосты, луна и снег. Хиросигэ смотрел на Эдо из лодки и с моста, и почти всегда в сумерках.</p>
+    <a class="chapter__link textlink" href="?g=hiroshige#catalog">Две работы</a>
+  </section>
+  <section class="chapter" data-work="wheat-field" aria-labelledby="ch-vangogh">
+    <div class="chapter__field"></div>
+    <div class="chapter__frame"></div>
+    <h2 id="ch-vangogh">Ван Гог</h2>
+    <p class="chapter__text">Поле с кипарисами, ирисы и спальня в Арле. Все три написаны за последние полтора года его жизни.</p>
+    <a class="chapter__link textlink" href="?g=vangogh#catalog">Три работы</a>
+  </section>
+  <section class="chapter" data-work="irises-moth" aria-labelledby="ch-other">
+    <div class="chapter__field"></div>
+    <div class="chapter__frame"></div>
+    <h2 id="ch-other">Цветы и поле</h2>
+    <p class="chapter__text">Свиток Судзуки Киицу с ирисами и мотыльком и полдень в поле у Сарджента. Самые тихие работы в каталоге.</p>
+    <a class="chapter__link textlink" href="?g=other#catalog">Две работы</a>
+  </section>
+
+  <!-- Каталог -->
+  <section class="catalog" id="catalog" aria-labelledby="catalog-title">
+    <div class="catalog__head reveal">
+      <h2 id="catalog-title">Все работы</h2>
+      <p>Цена указана за печать 30 см без рамы. Размер, паспарту и раму выберете на странице работы.</p>
+      <fieldset class="opts" style="border:0;padding:0;margin-top:1.75rem">
+        <legend class="sr-only">Показать</legend>
+        <label class="opt"><input type="radio" name="g" value="all" checked><span>Все</span></label>
+        <label class="opt"><input type="radio" name="g" value="hokusai"><span>Хокусай</span></label>
+        <label class="opt"><input type="radio" name="g" value="hiroshige"><span>Хиросигэ</span></label>
+        <label class="opt"><input type="radio" name="g" value="vangogh"><span>Ван Гог</span></label>
+        <label class="opt"><input type="radio" name="g" value="other"><span>Цветы и поле</span></label>
+      </fieldset>
+      <p class="tile__meta" id="shown" aria-live="polite" style="margin-top:1rem"></p>
+    </div>
+    <div class="tiles" id="tiles"></div>
+  </section>
+
+  <!-- Примерка: живая рамка на стене -->
+  <section class="fit" id="fit" aria-labelledby="fit-title-h">
+    <h2 id="fit-title-h" class="reveal">Примерьте на стену</h2>
+    <div class="fit__wall">
+      <img src="img/wall.jpg" alt="Голубая стена и деревянный стол с растением в стакане" width="2000" height="1333" loading="lazy">
+      <div class="fit__hang" id="hang"></div>
+    </div>
+    <form class="fit__panel" id="fit-form" onsubmit="return false">
+      <p id="fit-title">Большая волна в Канагаве. Кацусика Хокусай</p>
+      <div>
+        <p class="fit__label">Работа</p>
+        <div class="thumbs" id="thumbs"></div>
+      </div>
+      <fieldset style="border:0;padding:0;margin:0">
+        <legend class="fit__label">Размер по длинной стороне</legend>
+        <div class="opts">
+          <label class="opt"><input type="radio" name="size" value="s"><span>30 см</span></label>
+          <label class="opt"><input type="radio" name="size" value="m" checked><span>50 см</span></label>
+          <label class="opt"><input type="radio" name="size" value="l"><span>70 см</span></label>
+          <label class="opt"><input type="radio" name="size" value="xl"><span>100 см</span></label>
+        </div>
+      </fieldset>
+      <fieldset style="border:0;padding:0;margin:0">
+        <legend class="fit__label">Паспарту</legend>
+        <div class="opts">
+          <label class="opt"><input type="radio" name="mat" value="1" checked><span>Есть</span></label>
+          <label class="opt"><input type="radio" name="mat" value="0"><span>Без паспарту</span></label>
+        </div>
+      </fieldset>
+      <fieldset style="border:0;padding:0;margin:0">
+        <legend class="fit__label">Рама</legend>
+        <div class="opts">
+          <label class="opt"><input type="radio" name="frame" value="oak" checked><span><i class="swatch swatch--oak"></i>Дуб</span></label>
+          <label class="opt"><input type="radio" name="frame" value="black"><span><i class="swatch swatch--black"></i>Чёрная</span></label>
+          <label class="opt"><input type="radio" name="frame" value="white"><span><i class="swatch swatch--white"></i>Белая</span></label>
+          <label class="opt"><input type="radio" name="frame" value="none"><span><i class="swatch swatch--none"></i>Без рамы</span></label>
+        </div>
+      </fieldset>
+      <div class="price"><p><b id="fit-price">9 600 ₽</b></p><span class="price__dims" id="fit-dims"></span></div>
+      <button class="btn btn--wide" type="button" id="fit-add">В корзину</button>
+      <a class="textlink" id="fit-more" href="product.html?id=great-wave">Подробнее о работе</a>
+    </form>
+  </section>
+
+  <!-- Как делаем: по одному глаголу на экран -->
+  <section class="verbs" aria-label="Как мы делаем репродукцию">
+    <div class="verb">
+      <img src="img/great-wave.jpg" alt="Крупный фрагмент гравюры «Большая волна»: светлое небо и надпись" width="2000" height="1344" loading="lazy" style="object-position: 92% 12%; transform: scale(2.4); transform-origin: 92% 12%">
+      <p class="verb__word" aria-hidden="true">Печатаем</p>
+      <p class="verb__note"><b>Печатаем</b>Пигментными чернилами в 12 цветов на хлопковой бумаге 310 г/м². Файлы берём у музеев в полном разрешении.</p>
+      <p class="verb__src">Фрагмент: Хокусай, «Большая волна в Канагаве»</p>
+    </div>
+    <div class="verb">
+      <img src="img/red-fuji.jpg" alt="Крупный фрагмент гравюры «Красная Фудзи»: облака на голубом небе" width="2000" height="1370" loading="lazy" style="object-position: 30% 8%; transform: scale(2.2); transform-origin: 30% 8%">
+      <p class="verb__word" aria-hidden="true">Оформляем</p>
+      <p class="verb__note"><b>Оформляем</b>Паспарту режем из бескислотного картона, раму собираем из массива дуба. Вместо стекла антибликовый акрил.</p>
+      <p class="verb__src">Фрагмент: Хокусай, «Ясный день с южным ветром»</p>
+    </div>
+    <div class="verb">
+      <img src="img/kajikazawa.jpg" alt="Крупный фрагмент гравюры «Кадзикадзава»: туман над горой" width="2000" height="1326" loading="lazy" style="object-position: 62% 8%; transform: scale(2); transform-origin: 62% 8%">
+      <p class="verb__word" aria-hidden="true">Везём</p>
+      <p class="verb__note"><b>Везём</b>В жёсткой коробке с уголками: по Москве за 1–2 дня, по России СДЭКом или Почтой до 10 дней.</p>
+      <p class="verb__src">Фрагмент: Хокусай, «Кадзикадзава»</p>
+    </div>
+  </section>
+
+  <!-- Вопросы -->
+  <section class="faq" aria-labelledby="faq-title">
+    <h2 id="faq-title" class="reveal">Вопросы о заказе</h2>
+    <div class="qs">
+      <details><summary>Почему эти работы можно продавать?</summary><p>Это общественное достояние: авторские права истекли больше века назад, а музеи выложили сканы под лицензией CC0. Мы печатаем с их файлов и указываем источник у каждой работы.</p></details>
+      <details><summary>Какие размеры бывают?</summary><p>30, 50, 70 и 100 см по длинной стороне изображения. Паспарту добавляет от 5 до 14 см с каждой стороны, точный размер в раме видно при выборе.</p></details>
+      <details><summary>Из чего рама?</summary><p>Дубовая рама из массива под маслом, чёрная и белая из окрашенной ольхи. Крепления для стены в комплекте, вешается на один гвоздь.</p></details>
+      <details><summary>Сколько ждать?</summary><p>Печать и оформление занимают три рабочих дня. Потом доставка: по Москве 1–2 дня, по России до 10 дней.</p></details>
+      <details><summary>Как оплатить?</summary><p>Картой или по СБП после того, как менеджер подтвердит заказ и сроки.</p></details>
+      <details><summary>Можно вернуть?</summary><p>Да, в течение 14 дней, если рама и упаковка целы. Если печать повредилась в дороге, заменим бесплатно.</p></details>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="foot__pic"><img src="img/great-wave.jpg" alt="Крупный фрагмент «Большой волны»" width="2000" height="1344" loading="lazy"></div>
+  <div class="foot__menu">
+    <p class="foot__word">Паспарту</p>
+    <nav class="foot__links" aria-label="Разделы">
+      <a href="#catalog">Каталог</a>
+      <a href="?g=hokusai#catalog">Хокусай</a>
+      <a href="?g=vangogh#catalog">Ван Гог</a>
+      <a href="#fit">Примерка</a>
+      <a href="#faq-title">Вопросы</a>
+    </nav>
+    <div class="foot__blocks">
+      <p>hello@example.com<br>Ежедневно с 10 до 20</p>
+      <p>Изображения: The Met, Art Institute of Chicago (CC0). Фото стены: Padurariu Alexandru, Unsplash.</p>
+    </div>
+    <p class="foot__legal">© 2026 Паспарту. Демо-магазин для портфолио: компания вымышлена, заказы не принимаются.</p>
+  </div>
+</footer>
+
+<div class="scrim" id="scrim" hidden></div>
+<aside class="drawer" id="cart" role="dialog" aria-modal="true" aria-labelledby="cart-title" hidden>
+  <div class="drawer__head"><h2 id="cart-title">Корзина</h2><button class="drawer__x" id="cart-x" type="button" aria-label="Закрыть корзину">×</button></div>
+  <div class="drawer__step" data-step="items" style="display:flex;flex-direction:column;flex:1;min-height:0">
+    <ul class="drawer__body" id="cart-lines"></ul>
+    <div class="drawer__foot">
+      <p class="drawer__total"><span>Итого</span><b id="cart-total">0 ₽</b></p>
+      <button class="btn btn--wide" type="button" id="to-checkout">Оформить</button>
+    </div>
+  </div>
+  <div class="drawer__step drawer__body" data-step="checkout" hidden>
+    <form class="form" id="checkout" novalidate>
+      <label for="co-name">Имя</label>
+      <input id="co-name" autocomplete="name">
+      <label for="co-phone">Телефон</label>
+      <input id="co-phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 (___) ___-__-__">
+      <label for="co-city">Город</label>
+      <input id="co-city" autocomplete="address-level2">
+      <label for="co-del">Доставка</label>
+      <select id="co-del"><option>СДЭК до пункта выдачи</option><option>Почта России</option><option>Курьер по Москве</option></select>
+      <p class="form__err" id="co-err" aria-live="polite"></p>
+      <button class="btn btn--wide" type="submit">Оформить заказ</button>
+      <p class="form__fine">Оплата после звонка менеджера. Это демо-магазин: оплата не списывается.</p>
+      <button class="textlink" type="button" id="co-back" style="border:0;background:none;padding:0;justify-self:start;min-height:44px;cursor:pointer">Назад к корзине</button>
+    </form>
+  </div>
+  <div class="drawer__step drawer__body done" data-step="done" hidden>
+    <h3>Заказ оформлен</h3>
+    <p id="done-text"></p>
+    <p style="margin-top:2rem"><button class="btn" type="button" id="done-x">Вернуться в магазин</button></p>
+  </div>
+</aside>
+<div class="toast" id="toast" role="status" hidden></div>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
