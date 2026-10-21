@@ -1,0 +1,74 @@
+/* Overprint Supply — design tokens (theme: Riso · mid-light pink paper · risograph-bold sans · cool cyan + yellow) */
+:root {
+  --color-paper:    oklch(91% 0.034 30);
+  --color-paper-2:  oklch(87% 0.040 30);
+  --color-paper-3:  oklch(82% 0.046 30);
+  --color-sheet:    oklch(95% 0.018 35);
+  --color-rule:     oklch(70% 0.040 30);
+  --color-rule-2:   oklch(56% 0.060 30);
+  --color-muted:    oklch(44% 0.060 30);
+  --color-neutral:  oklch(34% 0.060 30);
+  --color-ink-2:    oklch(22% 0.060 30);
+  --color-ink:      oklch(18% 0.060 30);
+  --color-accent:   oklch(58% 0.170 220);   /* riso cyan */
+  --color-accent-deep: oklch(46% 0.150 225);
+  --color-accent-2: oklch(84% 0.170 95);    /* riso yellow */
+  --color-focus:    oklch(46% 0.150 225);
+  --color-error:    oklch(48% 0.170 25);
+  --color-scrim:    oklch(18% 0.060 30 / 0.42);
+  --color-shadow:   oklch(18% 0.060 30 / 0.22);
+
+  --font-display: "Public Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-body:    "Newsreader", ui-serif, Georgia, serif;
+  --font-mono:    "Geist Mono", ui-monospace, monospace;
+
+  --display-weight: 800;
+  --text-xs:   0.75rem;
+  --text-sm:   0.875rem;
+  --text-base: 1.0625rem;
+  --text-md:   1.1875rem;
+  --text-lg:   1.375rem;
+  --text-xl:   1.75rem;
+  --text-2xl:  2.25rem;
+  --text-display:   clamp(2.5rem, 4.5vw + 1rem, 5rem);
+  --text-display-s: clamp(1.875rem, 2.5vw + 1rem, 3rem);
+
+  --tracking-display: -0.04em;
+  --tracking-tight:   -0.014em;
+  --tracking-label:   0.06em;
+  --lh-tight: 0.92;
+  --lh-snug:  1.10;
+  --lh-normal: 1.5;
+
+  --space-3xs: 0.125rem;
+  --space-2xs: 0.25rem;
+  --space-xs:  0.5rem;
+  --space-sm:  0.75rem;
+  --space-md:  1rem;
+  --space-lg:  1.5rem;
+  --space-xl:  2.5rem;
+  --space-2xl: 4rem;
+  --space-3xl: 6rem;
+
+  --page-max: 84rem;
+  --page-gutter: clamp(1rem, 4vw, 2.5rem);
+  --banner-h: 40px;
+  --bar-h: 60px;
+
+  --radius: 2px;
+  --rule-hair: 1px;
+  --rule-heavy: 3px;
+
+  --ease-out:    cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in:     cubic-bezier(0.7, 0, 0.84, 0);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-micro: 120ms;
+  --dur-short: 220ms;
+  --dur-long:  420ms;
+
+  --z-base: 1;
+  --z-raised: 10;
+  --z-sticky: 200;
+  --z-modal: 400;
+  --z-toast: 500;
+}

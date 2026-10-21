@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Tallyhour — time tracking and invoices for freelancers</title>
+  <meta name="description" content="Track the hours, turn them into an invoice, get paid. A concept product for freelancers.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="tokens.css">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='13' fill='none' stroke='%23d9533f' stroke-width='4'/%3E%3Cpath d='M16 16V3a13 13 0 0 1 13 13z' fill='%23d9533f'/%3E%3C/svg%3E">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="nav" id="nav">
+    <div class="nav__inner">
+      <a class="nav__brand" href="#top" aria-label="Tallyhour home">
+        <svg class="mark" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="12.5" /><path d="M16 16V3.5A12.5 12.5 0 0 1 28.5 16z" /></svg>
+        Tallyhour
+      </a>
+      <nav class="nav__center" aria-label="Main">
+        <a class="nav__link" href="#tour">Tour</a>
+        <a class="nav__link" href="#pricing">Pricing</a>
+        <a class="nav__link" href="#faq">FAQ</a>
+      </nav>
+      <div class="nav__right">
+        <a class="nav__link nav__signin" href="#signup">Sign in</a>
+        <a class="btn btn--ink btn--sm" href="#signup">Start free</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="hero__text">
+        <h1 class="hero__title"><span>Track the hour.</span> <span>Bill the hour.</span></h1>
+        <p class="hero__lede">Tallyhour is a timer and an invoice in one place. Start the clock when you start the work, and on Friday the invoice is already written — rates, rounding and due dates included.</p>
+        <div class="hero__actions">
+          <a class="btn btn--ink" href="#signup">Start free</a>
+          <a class="link-arrow" href="#pricing">See pricing</a>
+        </div>
+        <p class="hero__note">The demo is live: start the timer, stop it, then open the invoice.</p>
+      </div>
+
+      <figure class="app" id="app" aria-label="Interactive demo: timer and invoice">
+        <div class="app__tabs" role="tablist" aria-label="Demo view">
+          <button class="app__tab" role="tab" id="tab-timer" aria-controls="panel-timer" aria-selected="true">Timer</button>
+          <button class="app__tab" role="tab" id="tab-invoice" aria-controls="panel-invoice" aria-selected="false" tabindex="-1">Invoice</button>
+          <span class="app__week"><span class="muted">This week</span> <b id="week-hours" class="tnum">0h 00m</b> · <b id="week-amount" class="tnum">$0</b></span>
+        </div>
+
+        <div class="app__panel" id="panel-timer" role="tabpanel" aria-labelledby="tab-timer">
+          <form class="timer" id="timer-form" autocomplete="off">
+            <label class="sr-only" for="t-desc">What are you working on?</label>
+            <input class="timer__desc" id="t-desc" name="desc" maxlength="60" value="Glaze catalogue — layout" placeholder="What are you working on?">
+            <label class="sr-only" for="t-client">Client</label>
+            <select class="timer__client" id="t-client" name="client"></select>
+            <output class="timer__clock tnum" id="t-clock" aria-live="off">0:00:00</output>
+            <button class="timer__btn" id="t-toggle" type="submit" aria-pressed="false">Start</button>
+          </form>
+          <p class="app__hint muted">Demo clock runs 60× faster — one second is one minute.</p>
+          <ol class="entries" id="entries" aria-label="Time entries this week"></ol>
+          <div class="app__foot">
+            <button class="btn btn--ink btn--sm" id="to-invoice" type="button">Invoice client</button>
+          </div>
+        </div>
+
+        <div class="app__panel" id="panel-invoice" role="tabpanel" aria-labelledby="tab-invoice" hidden>
+          <article class="invoice" id="invoice" aria-live="polite"></article>
+        </div>
+      </figure>
+    </section>
+
+    <section class="tour" id="tour" aria-labelledby="tour-title">
+      <div class="section-head">
+        <h2 id="tour-title">Three screens do the whole job.</h2>
+        <p>Set the rate once, let the time turn into line items, and see at a glance who still owes you.</p>
+      </div>
+
+      <div class="shot">
+        <figure class="shot__ui ui-settings" aria-label="Client settings screen">
+          <div class="ui-head">
+            <span class="ui-avatar" aria-hidden="true">HR</span>
+            <div><b>Halden &amp; Rowe</b><span class="muted">Architects · since March</span></div>
+          </div>
+          <dl class="ui-fields">
+            <div><dt>Hourly rate <i class="pin">1</i></dt><dd class="ui-input tnum">$95.00</dd></div>
+            <div><dt>Round time to <i class="pin">2</i></dt><dd class="ui-input">Nearest 15 min</dd></div>
+            <div><dt>Currency <i class="pin">3</i></dt><dd class="ui-input">USD</dd></div>
+            <div><dt>Payment terms</dt><dd class="ui-input">Net 14</dd></div>
+          </dl>
+        </figure>
+        <div class="shot__text">
+          <h3>Rates per client, rounding per project.</h3>
+          <ol class="legend">
+            <li>Each client keeps its own rate. Change it once and every new entry follows.</li>
+            <li>Round up to 6, 15 or 30 minutes — or don’t round at all. The raw time is kept either way.</li>
+            <li>Bill in the client’s currency. Your own reports stay in yours.</li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="shot shot--flip">
+        <figure class="shot__ui ui-invoice" aria-label="Invoice screen">
+          <div class="ui-inv-top">
+            <div><b>Sam Tan</b><span class="muted">Design &amp; illustration</span></div>
+            <div class="ui-inv-no"><span class="muted">Invoice</span> <b class="tnum">2026-031</b></div>
+          </div>
+          <div class="ui-inv-meta">
+            <div><span class="muted">Bill to</span>Halden &amp; Rowe</div>
+            <div><span class="muted">Due <i class="pin">3</i></span><span class="tnum">Nov 4</span></div>
+          </div>
+          <table class="ui-lines tnum">
+            <thead><tr><th>Item <i class="pin">1</i></th><th>Hours</th><th>Amount</th></tr></thead>
+            <tbody>
+              <tr><td>Annual report — layout</td><td>11.25</td><td>$1,068.75</td></tr>
+              <tr><td>Annual report — charts</td><td>4.50</td><td>$427.50</td></tr>
+              <tr><td>Client calls</td><td>1.75</td><td>$166.25</td></tr>
+            </tbody>
+            <tfoot><tr><td colspan="2">Total</td><td>$1,662.50</td></tr></tfoot>
+          </table>
+          <div class="ui-pay">Pay by card or bank transfer <i class="pin">2</i></div>
+        </figure>
+        <div class="shot__text">
+          <h3>The invoice writes itself.</h3>
+          <ol class="legend">
+            <li>Tracked time becomes line items, grouped by project. Edit any line before sending.</li>
+            <li>Your client pays from a link. No account, no app to install.</li>
+            <li>The due date follows the client’s payment terms.</li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="shot">
+        <figure class="shot__ui ui-ledger" aria-label="Invoices overview screen">
+          <table class="tnum">
+            <thead><tr><th>No.</th><th>Client</th><th>Amount</th><th>Status</th><th class="hide-sm">Reminder <i class="pin">2</i></th></tr></thead>
+            <tbody>
+              <tr><td>031</td><td>Halden &amp; Rowe</td><td>$1,662.50</td><td><span class="status status--sent">Sent</span></td><td class="hide-sm muted">Nov 7</td></tr>
+              <tr><td>030</td><td>Port Ellis Radio</td><td>$420.00</td><td><span class="status status--late">Overdue <i class="pin">1</i></span></td><td class="hide-sm">Today</td></tr>
+              <tr><td>029</td><td>Moss Ceramics</td><td>$935.00</td><td><span class="status status--paid">Paid <i class="pin">3</i></span></td><td class="hide-sm muted">—</td></tr>
+              <tr><td>028</td><td>Moss Ceramics</td><td>$510.00</td><td><span class="status status--paid">Paid</span></td><td class="hide-sm muted">—</td></tr>
+            </tbody>
+          </table>
+        </figure>
+        <div class="shot__text">
+          <h3>Know who owes you, without a spreadsheet.</h3>
+          <ol class="legend">
+            <li>Overdue invoices rise to the top and turn coral. Nothing else on the screen does.</li>
+            <li>A polite reminder goes out three days after the due date. You write the wording once.</li>
+            <li>When the money lands, the invoice marks itself paid.</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <section class="spec" aria-labelledby="spec-title">
+      <h2 id="spec-title">What’s in it.</h2>
+      <table class="spec__table">
+        <tbody>
+          <tr><th scope="row">Time</th><td>Timers, manual entries, a weekly timesheet</td><td class="muted">Rounding: off, 6, 15 or 30 min</td></tr>
+          <tr><th scope="row">Invoices</th><td>Built from tracked time or written by hand</td><td class="muted">PDF and a shareable link</td></tr>
+          <tr><th scope="row">Payments</th><td>Card and bank transfer through your own payment account</td><td class="muted">Money goes straight to you</td></tr>
+          <tr><th scope="row">Reminders</th><td>Emails before and after the due date</td><td class="muted">Your words, your schedule</td></tr>
+          <tr><th scope="row">Tax</th><td>VAT or GST lines per client</td><td class="muted">Quarterly totals for your accountant</td></tr>
+          <tr><th scope="row">Export</th><td>CSV of time and invoices, PDF archive</td><td class="muted">Download any time, any plan</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="pricing" id="pricing" aria-labelledby="pricing-title">
+      <div class="pricing__head">
+        <h2 id="pricing-title">Pricing</h2>
+        <fieldset class="billing">
+          <legend class="sr-only">Billing period</legend>
+          <input type="radio" name="billing" id="bill-month" value="month" checked>
+          <label for="bill-month">Monthly</label>
+          <input type="radio" name="billing" id="bill-year" value="year">
+          <label for="bill-year">Yearly <span class="billing__save">2 months free</span></label>
+        </fieldset>
+      </div>
+
+      <div class="plans">
+        <div class="plan">
+          <h3>Solo</h3>
+          <p class="plan__price"><span class="tnum" data-month="0" data-year="0">$0</span><span class="plan__per muted">forever</span></p>
+          <p class="plan__for">For your first clients.</p>
+          <ul>
+            <li>Up to 2 active clients</li>
+            <li>Unlimited time tracking</li>
+            <li>Invoices with a small Tallyhour footer</li>
+          </ul>
+          <a class="btn btn--line" href="#signup">Start free</a>
+        </div>
+        <div class="plan plan--main">
+          <h3>Pro <span class="plan__tag">Most picked</span></h3>
+          <p class="plan__price"><span class="tnum" data-month="12" data-year="10">$12</span><span class="plan__per muted" data-month="per month" data-year="per month, billed $120 yearly">per month</span></p>
+          <p class="plan__for">For a full-time freelance practice.</p>
+          <ul>
+            <li>Unlimited clients</li>
+            <li>Automatic reminders</li>
+            <li>Your logo and colours on invoices</li>
+            <li>Online card and bank payments</li>
+          </ul>
+          <a class="btn btn--ink" href="#signup">Try Pro for 14 days</a>
+        </div>
+        <div class="plan">
+          <h3>Studio</h3>
+          <p class="plan__price"><span class="tnum" data-month="29" data-year="24">$29</span><span class="plan__per muted" data-month="per month" data-year="per month, billed $290 yearly">per month</span></p>
+          <p class="plan__for">For two to five people sharing clients.</p>
+          <ul>
+            <li>Everything in Pro</li>
+            <li>Up to 5 people</li>
+            <li>Team timesheets</li>
+            <li>Approve invoices before they go out</li>
+          </ul>
+          <a class="btn btn--line" href="#signup">Start a studio</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="faq" id="faq" aria-labelledby="faq-title">
+      <h2 id="faq-title">Questions people ask first</h2>
+      <div class="faq__list">
+        <details>
+          <summary>Do my clients need an account?</summary>
+          <div class="faq__a"><p>No. They get a link to the invoice and can pay or download the PDF without signing up for anything.</p></div>
+        </details>
+        <details>
+          <summary>Can I bring my old time entries?</summary>
+          <div class="faq__a"><p>Yes — import a CSV with a date, client, description and duration. The column names don’t have to match; you map them once and Tallyhour remembers.</p></div>
+        </details>
+        <details>
+          <summary>What if I forget to stop the timer?</summary>
+          <div class="faq__a"><p>A timer that runs past ten hours pauses itself and asks you about it the next morning. Fix the entry and the invoice uses the corrected time.</p></div>
+        </details>
+        <details>
+          <summary>Which currencies can I bill in?</summary>
+          <div class="faq__a"><p>Any. Each client has its own currency; your reports convert everything to yours at the rate of the invoice date.</p></div>
+        </details>
+        <details>
+          <summary>What happens if I cancel?</summary>
+          <div class="faq__a"><p>You drop to Solo. Every invoice, PDF and export stays downloadable — nothing is deleted.</p></div>
+        </details>
+        <details>
+          <summary>Is Tallyhour a real company?</summary>
+          <div class="faq__a"><p>No — it’s a concept project. The design and the working demo at the top of the page are real; the business behind them isn’t.</p></div>
+        </details>
+      </div>
+    </section>
+
+    <section class="signup" id="signup" aria-labelledby="signup-title">
+      <h2 id="signup-title">Send your first invoice tonight.</h2>
+      <p class="muted">Free for two clients. No card needed.</p>
+      <form class="cta-form" id="signup-form" novalidate>
+        <label for="email">Work email</label>
+        <div class="cta-form__row">
+          <input id="email" name="email" type="email" autocomplete="email" placeholder="you@studio.com" required aria-describedby="email-msg">
+          <button class="btn btn--ink" type="submit">Start free</button>
+        </div>
+        <p class="cta-form__msg" id="email-msg" aria-live="polite"></p>
+      </form>
+    </section>
+  </main>
+
+  <aside class="cta-bar" id="cta-bar" aria-label="Sign up" hidden>
+    <p><b>Free for two clients.</b> <span class="muted hide-sm">No card needed.</span></p>
+    <a class="btn btn--ink btn--sm" href="#signup">Start free</a>
+  </aside>
+
+  <footer class="foot">
+    <p class="foot__statement">Bill the hour you worked, not the one you remember.</p>
+    <div class="foot__meta">
+      <span class="foot__brand">Tallyhour</span>
+      <span>Concept project — design &amp; build by <a href="https://and4rey.github.io/portfolio/">And4REY</a></span>
+      <span class="tnum">© 2026</span>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
